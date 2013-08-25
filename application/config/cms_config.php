@@ -1,3 +1,3 @@
 <?php
 
-$config['site_name'] = 'Awesme site for my CMS';
+$config['site_name'] = 'Awesome site for my CMS';

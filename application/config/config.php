@@ -1,5 +1,20 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Autocarga de clases que no comienzan por CI_ guardadas en libraries/
+ * @param $classname nombre de la clase.
+ */
+function __autoload($classname) {
+    // Si la case no comienza con CI_ intentará localizarla en libraries.
+    if(strpos($classname, 'CI_') !== 0){
+        $file = APPPATH . 'libraries/' . $classname . '.php';
+        // Si lo localiza y existe lo incluirá.
+        if(file_exists($file) && is_file($file)){
+            @include_once($file);
+        }
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
