@@ -21,4 +21,34 @@ class User_m extends MY_Model {
         parent::__construct();
     }
 
+    public function login(){
+        $user = $this->get_by(array(
+            'email' => $this->input->post('email'),
+            'password' => $this->hash($this->input->post('password'))
+        ), TRUE);
+
+        if(count($user)){
+            // Se encontró un usuario
+            $data = array(
+                'user' => $user->name,
+                'email' => $user->email,
+                'id' => $user->id,
+                'loggedin' => TRUE,
+            );
+            $this->session->set_userdata($data);
+        }
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+    }
+
+    public function loggedin(){
+        return (bool) $this->session->userdata('loggedin');
+    }
+
+    public function hash($string){
+        return hash('sha512', $string . config_item('encryption_key'));
+    }
+
 }

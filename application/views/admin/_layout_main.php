@@ -35,7 +35,7 @@
             <div class="col-lg-3">
                 <section>
                     <i class="glyphicon glyphicon-user"></i><?php echo mailto('admin@email.com', ' admin@email.com'); ?><br>
-                    <i class="glyphicon glyphicon-off"></i><?php echo anchor('admin/users/logout', ' logout'); ?>
+                    <i class="glyphicon glyphicon-off"></i><?php echo anchor('admin/user/logout', ' logout'); ?>
                 </section>
             </div>
         </div>
