@@ -17,8 +17,8 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<?php echo site_url('admin/dashboard'); ?>">Home</a></li>
-                <li><?php echo anchor('admin/pages', 'pages') ?></li>
-                <li><?php echo anchor('admin/users', 'users') ?></li>
+                <li><?php echo anchor('admin/pages', 'Páginas') ?></li>
+                <li><?php echo anchor('admin/user', 'Usuarios') ?></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -27,9 +27,7 @@
         <div class="row">
             <!-- Panel principal -->
             <div class="col-lg-9">
-                <section>
-                    <h2>Page name</h2>
-                </section>
+                <?php $this->load->view($subview); ?>
             </div>
             <!-- Panel lateral -->
             <div class="col-lg-3">

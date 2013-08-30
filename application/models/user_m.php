@@ -4,6 +4,7 @@ class User_m extends MY_Model {
 
     protected $_table_name      = 'users';
     protected $_order_by        = 'name';
+    // Reglas login usuario
     public    $rules            = array(
         'email' =>  array(
             'field' => 'email',
@@ -14,6 +15,34 @@ class User_m extends MY_Model {
             'field' => 'password',
             'label' => 'Password',
             'rules' => 'trim|required'
+        )
+    );
+    // Reglas para insertar/editar usuarios
+    public    $rules_admin      = array(
+        'name' =>  array(
+            'field' => 'name',
+            'label' => 'Nombre',
+            'rules' => 'trim|required|xss_clean'
+        ),
+        'order' =>  array(
+            'field' => 'order',
+            'label' => 'Order',
+            'rules' => 'trim|is_natural'
+        ),
+        'email' =>  array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'trim|required|valid_email|callback__unique_mail|xss_clean'
+        ),
+        'password' =>  array(
+            'field' => 'password',
+            'label' => 'Password',
+            'rules' => 'trim|matches[password_confirm]'
+        ),
+        'password_confirm' =>  array(
+            'field' => 'password_confirm',
+            'label' => 'Confirmar password',
+            'rules' => 'trim|matches[password]'
         )
     );
 
