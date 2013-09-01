@@ -1,0 +1,1 @@
+<h2>Bienvenido al Panel de Admin</h2>

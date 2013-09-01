@@ -32,7 +32,7 @@
             <!-- Panel lateral -->
             <div class="col-lg-3">
                 <section>
-                    <i class="glyphicon glyphicon-user"></i><?php echo mailto('admin@email.com', ' admin@email.com'); ?><br>
+                    <i class="glyphicon glyphicon-user"></i><?php echo mailto($this->session->userdata('email'), ' '.$this->session->userdata('email')); ?><br>
                     <i class="glyphicon glyphicon-off"></i><?php echo anchor('admin/user/logout', ' logout'); ?>
                 </section>
             </div>

@@ -104,4 +104,19 @@ class MY_Model extends CI_Model {
         $this->db->limit(1);
         $this->db->delete($this->_table_name);
     }
+
+    /**
+     * Tomará un array de campos de los que queremos recoger su valor posteado desde el form.
+     * @param $fields array con el nombre de los campos.
+     * @return array con todos los datos posteados
+     */
+    public function array_from_post($fields){
+        $data = array();
+
+        foreach($fields as $field){
+            $data[$field] = $this->input->post($field);
+        }
+
+        return $data;
+    }
 }

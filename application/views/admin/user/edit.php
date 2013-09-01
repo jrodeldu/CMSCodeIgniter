@@ -9,12 +9,12 @@
 
         <?php
         echo form_label('Nombre', 'nombre');
-        echo form_input(array('name' => 'nombre', 'class' => 'form-control', 'placeholder' => ''));
+        echo form_input(array('name' => 'name', 'class' => 'form-control', 'placeholder' => '', 'value' => set_value('name', $user->name)));
         ?>
 
         <?php
         echo form_label('Email', 'email');
-        echo form_input(array('name' => 'email', 'class' => 'form-control', 'placeholder' => 'direccion@correo.com'));
+        echo form_input(array('name' => 'email', 'class' => 'form-control', 'placeholder' => 'direccion@correo.com', 'value' => set_value('email', $user->email)));
         ?>
 
         <?php
