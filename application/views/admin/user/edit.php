@@ -1,4 +1,4 @@
-<div class="modal-content col-lg-8 col-lg-offset-2">
+<div class="modal-content col-lg-12">
     <div class="modal-header">
         <h2 class="modal-title"><?php echo empty($user->id) ? 'Añadir un nuevo usuario' : 'Editar usuario ' . $user->name; ?></h2>
     </div>
@@ -27,7 +27,8 @@
         echo form_password(array('name' => 'password_confirm', 'class' => 'form-control', 'placeholder' => ''));
         ?>
 
-        <?php echo form_submit('submit', 'Guardar', 'class="btn btn-lg btn-primary btn-block"') ?>
+        <hr>
+        <?php echo form_submit('submit', 'Guardar', 'class="btn btn-primary"') ?>
         <?php echo form_close(); ?>
 
     </div>

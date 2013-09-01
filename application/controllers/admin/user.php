@@ -27,6 +27,8 @@ class User extends Admin_Controller {
         // Asumimos que tenemos un id y si no lo tenemos incluimos a las reglas la reestricción de campo requerido en password.
         $id || $rules['password']['rules'] .= '|required';
         $this->form_validation->set_rules($rules);
+
+        // Procesar el formulario.
         if($this->form_validation->run() == TRUE){
             $data = $this->user_m->array_from_post(array('name', 'email', 'password'));
             // Si el password se dejó vacío no se debe actualizar por una string vacía así que se quita del array con array_pop.
@@ -50,8 +52,11 @@ class User extends Admin_Controller {
         // Asumimos que el usuario no está logueado y si lo está, lo redirigimos.
         $this->user_m->loggedin() == FALSE || redirect($dashboard);
 
+        // Establecer reglas.
         $rules = $this->user_m->rules;
         $this->form_validation->set_rules($rules);
+
+        // Procesar formulario.
         if($this->form_validation->run() == TRUE){
             // Se procede a logear al usuario.
             if($this->user_m->login() == TRUE){
@@ -71,7 +76,8 @@ class User extends Admin_Controller {
     }
 
     /**
-     * Callback para controlar email único
+     * Callback para controlar email único.
+     * NO SE VALIDARÁ si ya existe un mail idéntico (sin contar el del usuario en caso de edición del mismo)
      * @param $email campo email desde el que se llama al callback
      * @return bool
      */
