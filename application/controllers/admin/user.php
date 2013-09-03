@@ -17,7 +17,7 @@ class User extends Admin_Controller {
         // Si hay id se buscan los datos del usuario. Si no se crea una instancia con valores vacíos.
         if($id){
             $this->data['user'] = $this->user_m->get($id);
-            count($this->data['user']) || $this->data['error'][''] = 'Usuario no encontrado';
+            count($this->data['user']) || $this->data['errors'][] = 'Usuario no encontrado';
         }else{
             $this->data['user'] = $this->user_m->get_new();
         }

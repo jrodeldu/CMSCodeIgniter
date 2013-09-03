@@ -18,7 +18,7 @@ class Page extends Admin_Controller {
         // Si hay id se buscan los datos del usuario. Si no se crea una instancia con valores vacíos.
         if($id){
             $this->data['page'] = $this->page_m->get($id);
-            count($this->data['page']) || $this->data['error'][''] = 'Usuario no encontrado';
+            count($this->data['page']) || $this->data['errors'][] = 'Página no encontrada';
         }else{
             $this->data['page'] = $this->page_m->get_new();
         }
